@@ -1,4 +1,4 @@
-class EnergyPerRoom:
+class Room:
     def __init__(self,
                  room_num: int,
                  shower_energy: float,
@@ -14,8 +14,11 @@ class EnergyPerRoom:
         self.device_energy = device_energy
 
     def __repr__(self):
-        return (("Room {} Energy Usage - Shower: {}, Lights: {}, Fans: {}, "
-                "Air Purifiers: {}, Devices: {}")
+        return (("Room: {}, Shower Energy: {}, Light Energy: {}, Fan Energy: {}, "
+                "Air Purifier Energy: {}, Device Energy: {}")
                 .format(self.room_num, self.shower_energy, self.light_energy, self.fan_energy,self.ap_energy,self.device_energy))
 
+    def to_dict(self):
+        return{"Room": self.room_num, "Shower Energy": self.shower_energy, "Light Energy": self.light_energy,
+               "Fan Energy": self.fan_energy, "Air Purifier Energy": self.ap_energy, "Device Energy": self.device_energy}
 
