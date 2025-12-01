@@ -1,7 +1,7 @@
 # dictionaries to hold placeholders for the wattage that each thing uses for calculations
 
 # NEED TO FIGURE OUT HOW TO DO MULTIPLE TYPES OF DEVIECES, OR MULTIPLE TYPES OF FANS ETC
-# commit
+# commit a
 
 fan_watts = {"woozoo": 1.0, "hurricane": 2.0, "idk": .5, "example": 0.0} #all placeholders
 ap_watts = {"winix": 5.0, "blue pure": 3.0, "idk": .5, "example": 0.0} #all placeholders
