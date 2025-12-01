@@ -3,9 +3,10 @@
 # NEED TO FIGURE OUT HOW TO DO MULTIPLE TYPES OF DEVIECES, OR MULTIPLE TYPES OF FANS ETC
 # commit
 
-fan_watts = {"woozoo": 1.0, "hurricane": 2.0, "idk": .5, "example": 0.0} #all placeholders
-ap_watts = {"winix": 5.0, "blue pure": 3.0, "idk": .5, "example": 0.0} #all placeholders
-device_watts = {"phone": 1.0, "mac": 3.0, "laptop": 5.0, "ipad": 2.0} #all placeholders
+#ALL IN WATTS
+fan_watts = {"woozoo": 50, "hurricane": 115, "idk": 30} #all placeholders
+ap_watts = {"winix": 30, "blue pure": 46, "idk": 55} #all placeholders
+device_watts = {"phone": 20, "mac": 60, "laptop": 65, "ipad": 20} #all placeholders
 
 
 
