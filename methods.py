@@ -131,6 +131,13 @@ def find_above_average(energy_data: list[dict], energy_type: str):
             above_average.append(room["Room Number"])
     return f"Rooms with above average {energy_type} usage: {above_average}"
 
+def energy_type_average(energy_data: list[dict], energy_type: str):
+    avg = 0
+    for room in energy_data:
+        avg += room[energy_type]
+    avg = round(avg / len(energy_data), 2)
+    return f"Average {energy_type} usage: {avg} Watts"
+
 
 def total_energy_average(energy_data: list[dict]):
     total_energy = 0
@@ -180,24 +187,30 @@ def tips_for_above_average(energy_data: list[dict]):
 # added extra, average total energy to main
 
 if __name__ == "__main__":
+    print("DAILY ENERGY USAGES:")
+    print(energy_type_average(rooms, "Shower Energy"))
     print(find_above_average(rooms, "Shower Energy"))
     print("Tip: Consider taking shorter showers")
     print("")
+    print(energy_type_average(rooms, "Light Energy"))
     print(find_above_average(rooms, "Light Energy"))
     print("Tip: Turning off lights when you sleep, or not in the room can conserve energy")
     print("")
+    print(energy_type_average(rooms, "Fan Energy"))
     print(find_above_average(rooms, "Fan Energy"))
     print("Tip: Try opening windows if it gets too hot before turning on your fans")
     print("")
+    print(energy_type_average(rooms, "Air Purifier Energy"))
     print(find_above_average(rooms, "Air Purifier Energy"))
     print("Tip: Try to utilize a more energy-efficient air purifier or reduce hours when you aren't in the room ")
     print("")
+    print(energy_type_average(rooms, "Device Energy"))
     print(find_above_average(rooms, "Device Energy"))
-    print(" ")
     print("Tip: Try to limit your use of the devices throughout the day so you charge them less, and consider using")
     print("the 80% feature to stop your phones charging at 80% throughout the night")
     print("")
     print("")
     print(lowest_total_energy(rooms))
     print(highest_total_energy(rooms))
+    print("")
     print("Average Total Energy:", total_energy_average(rooms), "Watts ")
