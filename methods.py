@@ -1,14 +1,111 @@
 
 import data
+from data import Room
+#
+# NEW TEMP DATA (11/29) 8
+data = [
+    data.Room(
+        201, 1.25, 12, 100,
+        fans=[("hurricane", 24)],
+        air_purifiers=[("blue pure", 24), ("blue pure", 24)],
+        devices=[("laptop", 8), ("laptop", 8), ("laptop", 8),
+                 ("phone", 8), ("phone", 8), ("phone", 8)]
+    ),
+    data.Room(
+        202, 0.75, 9, 100,
+        fans=[("woozoo", 6), ("woozoo", 6)],
+        air_purifiers=[],
+        devices=[("laptop", 10), ("laptop", 10), ("laptop", 10),
+                 ("ipad", 10), ("phone", 10), ("phone", 10), ("phone", 10)]
+    ),
+    data.Room(
+        204, 1.5, 18, 100,
+        fans=[("idk", 10), ("idk", 10)],
+        air_purifiers=[],
+        devices=[("mac", 12), ("mac", 12), ("mac", 12),
+                 ("phone", 12), ("phone", 12), ("phone", 12)]
+    ),
+    data.Room(
+        205, 1, 12, 100,
+        fans=[("woozoo", 24), ("woozoo", 24), ("woozoo", 24)],
+        air_purifiers=[("winix", 24)],
+        devices=[("laptop", 8), ("laptop", 8), ("laptop", 8),
+                 ("ipad", 8), ("ipad", 8), ("phone", 8), ("phone", 8), ("phone", 8)]
+    ),
+    data.Room(
+        206, 2, 16, 100,
+        fans=[("woozoo", 24), ("woozoo", 24), ("idk", 24)],
+        air_purifiers=[],
+        devices=[("laptop", 10), ("laptop", 10), ("laptop", 10),
+                 ("phone", 10), ("phone", 10)]
+    ),
+    data.Room(
+        208, 1.5, 16, 100,
+        fans=[("woozoo", 6), ("idk", 6)],
+        air_purifiers=[("idk", 24)],
+        devices=[("laptop", 10), ("phone", 10), ("dj set", 10),
+                 ("phone", 10), ("laptop", 10), ("phone", 10),
+                 ("laptop", 10), ("phone", 10), ("phone", 10), ("phone", 10)]
+    ),
+    data.Room(
+        209, 1.25, 15, 100,
+        fans=[],
+        air_purifiers=[],
+        devices=[("phone", 10), ("phone", 10), ("phone", 10),
+                 ("mac", 10), ("mac", 10), ("mac", 10),
+                 ("ipad", 10), ("ipad", 10), ("ipad", 10),
+                 ("pc", 10), ("pc", 10)]
+    ),
+    data.Room(
+        210, 0.75, 10, 100,
+        fans=[("woozoo", 24), ("woozoo", 24), ("woozoo", 24)],
+        air_purifiers=[],
+        devices=[("laptop", 15), ("laptop", 15), ("laptop", 15),
+                 ("phone", 15), ("phone", 15), ("phone", 15),
+                 ("ipad", 15), ("ipad", 15)]
+    ),
+    data.Room(
+        211, 1, 12, 100,
+        fans=[("idk", 24), ("idk", 24), ("idk", 24)],
+        air_purifiers=[("idk", 24), ("idk", 24)],
+        devices=[("mac", 12), ("mac", 12), ("mac", 12),
+                 ("phone", 12), ("phone", 12), ("phone", 12)]
+    ),
+    data.Room(
+        212, 1, 18, 100,
+        fans=[("woozoo", 24), ("woozoo", 24), ("idk", 24)],
+        air_purifiers=[("idk", 24), ("idk", 24)],
+        devices=[("mac", 15), ("mac", 15), ("mac", 15),
+                 ("ipad", 15), ("ipad", 15), ("ipad", 15),
+                 ("phone", 15), ("phone", 15), ("phone", 15), ("phone", 15)]
+    ),
+    data.Room(
+        213, 2, 18, 100,
+        fans=[("hurricane", 14), ("idk", 14)],
+        air_purifiers=[("idk", 24)],
+        devices=[("laptop", 8), ("laptop", 8), ("mac", 8),
+                 ("phone", 8), ("phone", 8), ("phone", 8)]
+    ),
+    data.Room(
+        214, 1.5, 24, 100,
+        fans=[("woozoo", 24), ("woozoo", 24), ("idk", 24)],
+        air_purifiers=[("blue pure", 24), ("blue pure", 24)],
+        devices=[("ipad", 12), ("ipad", 12), ("phone", 12),
+                 ("phone", 12), ("phone", 12), ("mac", 12),
+                 ("mac", 12), ("mac", 12)]
+    ),
+    data.Room(
+        215, 1.25, 16, 100,
+        fans=[],
+        air_purifiers=[],
+        devices=[("phone", 12), ("phone", 12), ("phone", 12),
+                 ("ipad", 12), ("ipad", 12), ("ipad", 12),
+                 ("mac", 12), ("mac", 12), ("mac", 12),
+                 ("pc", 12), ("pc", 12)]
+    ),
+]
 
-# NEW TEMP DATA (11/29)
-temp_data =  [data.Room(201, 100, 1,
-                         100, 10, "woozoo", 6, 24, "winix", "laptop", 3), data.Room(202, 100, 5,
-                         100, 18, "hurricane", 5, 0, "idk", "phone", 8), data.Room(205, 100, 3,
-                         100, 24, "idk", 2, 3, "blue pure", "mac", 12),
-                ]
-
-temp_rooms = [room.to_dict() for room in temp_data]
+rooms = [room.to_dict() for room in data]
 
 
 
@@ -52,6 +149,6 @@ def tips_for_above_average(energy_data: list[dict]):
 # added extra, average total energy to main
 
 if __name__ == "__main__":
-    print(find_above_average(temp_rooms, "Shower Energy"))
-    print(find_above_average(temp_rooms, "Device Energy"))
-    print("Average Total Energy:", total_energy_average(temp_rooms))
+    print(find_above_average(rooms, "Shower Energy"))
+    print(find_above_average(rooms, "Device Energy"))
+    print("Average Total Energy:", total_energy_average(rooms))
