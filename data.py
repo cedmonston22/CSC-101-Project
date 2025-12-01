@@ -17,26 +17,21 @@ class Room:
                  shower_hours: float,
                  light_watts: float,
                  light_hours: float,
-                 fan_type: str,
-                 fan_hours: float,
-                 ap_hours: float,
-                 ap_type: str,
-                 device_type: str,
-                 device_hours: float):
+                 fans: list[tuple(str, int)],
+                 air_purifiers: list[tuple(str, int)],
+                 devices: list[dict],
+                 ):
 
         self.room_num = room_num
         self.shower_watts = shower_watts
         self.shower_hours = shower_hours
         self.light_watts = light_watts
         self.light_hours = light_hours
-        self.fan_type = fan_type
-        self.fan_hours = fan_hours
-        self.ap_hours = ap_hours
-        self.ap_type = ap_type
-        self.device_type = device_type
-        self.device_hours = device_hours
 
-# need to fix these two methods
+        self.fans = [(fan_type.lower(), hrs) for fan_type, hrs in fans]
+        self.air_purifiers = [(air_purifier_type.lower(), hrs) for air_purifier_type, hrs in air_purifiers]
+        self.devices = [(device_type.lower(), hrs) for device_type, hrs in devices]
+
 
     def __repr__(self):
         return (("Room Number: {}, Shower Energy: {}, Light Energy: {}, Fan Energy: {}, "
@@ -50,6 +45,11 @@ class Room:
 # energy calculations
     # multiplying the shower wattage you input, or we can just have it set,
     # by the amount of hours to get wattage per hour (can use different unit)
+
+    # make sure if somethign different is enetered, the whole thing dosen't crash
+    def lookup(self, table: dict, key: str):
+        return table.get(key, 0)
+
     def shower_energy(self):
         return self.shower_watts * self.shower_hours
 
@@ -59,15 +59,24 @@ class Room:
 
     # multiply the amt of hours by the wattage of a type of fan inputed (ie fan1 fan2 etc.)
     def fan_energy(self):
-        return fan_watts[self.fan_type] * self.fan_hours
+        total = 0
+        for fan_type, hrs in self.fans:
+            total += self.lookup(fan_watts, fan_type) * hrs
+        return total
 
     # same thing but for ap
     def ap_energy(self):
-        return ap_watts[self.ap_type] * self.ap_hours
+        total = 0
+        for air_purifier_type, hrs in self.air_purifiers:
+            total += self.lookup(ap_watts, air_purifier_type) * hrs
+        return total
 
     # same thing but for devices
     def device_energy(self):
-        return device_watts[self.device_type] * self.device_hours
+        total = 0
+        for device_type, hrs in self.devices:
+            total += self.lookup(device_watts, device_type) * hrs
+        return total
 
 
 
