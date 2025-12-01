@@ -1,7 +1,7 @@
 
 import data
 from data import Room
-#a
+#
 # NEW TEMP DATA (11/29) 8
 data = [
     data.Room(
