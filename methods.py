@@ -150,8 +150,8 @@ def tips_for_above_average(energy_data: list[dict]):
 
 if __name__ == "__main__":
     print(find_above_average(rooms, "Shower Energy"))
-    print(find_above_average(rooms, "Device Energy"))
     print(find_above_average(rooms, "Light Energy"))
-    print(find_above_average(rooms, "Air Purifier Energy"))
     print(find_above_average(rooms, "Fan Energy"))
+    print(find_above_average(rooms, "Air Purifier Energy"))
+    print(find_above_average(rooms, "Device Energy"))
     print("Average Total Energy:", total_energy_average(rooms))
