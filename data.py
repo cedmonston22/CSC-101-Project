@@ -9,8 +9,6 @@ device_watts = {"phone": 1.0, "mac": 3.0, "laptop": 5.0, "ipad": 2.0} #all place
 
 
 
-
-
 class Room:
     def __init__(self,
                  room_num: int,
