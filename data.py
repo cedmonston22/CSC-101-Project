@@ -1,19 +1,20 @@
 # dictionaries to hold placeholders for the wattage that each thing uses for calculations
 
-# NEED TO FIGURE OUT HOW TO DO MULTIPLE TYPES OF DEVICES, OR MULTIPLE TYPES OF FANS ETC
+# NEED TO FIGURE OUT HOW TO DO MULTIPLE TYPES OF DEVIECES, OR MULTIPLE TYPES OF FANS ETC
 # commit
 
-#ALL IN WATTS
-fan_watts = {"woozoo": 50, "hurricane": 115, "idk": 30}
-ap_watts = {"winix": 30, "blue pure": 46, "idk": 55}
-device_watts = {"phone": 20, "mac": 60, "laptop": 65, "ipad": 20}
+fan_watts = {"woozoo": 1.0, "hurricane": 2.0, "idk": .5, "example": 0.0} #all placeholders
+ap_watts = {"winix": 5.0, "blue pure": 3.0, "idk": .5, "example": 0.0} #all placeholders
+device_watts = {"phone": 1.0, "mac": 3.0, "laptop": 5.0, "ipad": 2.0} #all placeholders
 
 
 
 class Room:
     def __init__(self,
                  room_num: int,
+                 shower_watts: float,
                  shower_hours: float,
+                 light_watts: float,
                  light_hours: float,
                  fans: list[tuple(str, int)],
                  air_purifiers: list[tuple(str, int)],
@@ -21,9 +22,9 @@ class Room:
                  ):
 
         self.room_num = room_num
-        self.shower_watts = 3000
+        self.shower_watts = shower_watts
         self.shower_hours = shower_hours
-        self.light_watts = 30
+        self.light_watts = light_watts
         self.light_hours = light_hours
 
         self.fans = [(fan_type.lower(), hrs) for fan_type, hrs in fans]
