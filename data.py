@@ -13,19 +13,17 @@ device_watts = {"phone": 20, "mac": 60, "laptop": 65, "ipad": 20} #all placehold
 class Room:
     def __init__(self,
                  room_num: int,
-                 shower_watts: float,
                  shower_hours: float,
-                 light_watts: float,
                  light_hours: float,
-                 fans: list[tuple(str, int)],
-                 air_purifiers: list[tuple(str, int)],
-                 devices: list[dict],
+                 fans: list[tuple[str, int]],
+                 air_purifiers: list[tuple[str, int]],
+                 devices: list[tuple[str, int]],
                  ):
 
         self.room_num = room_num
-        self.shower_watts = shower_watts
+        self.shower_watts = 3000
         self.shower_hours = shower_hours
-        self.light_watts = light_watts
+        self.light_watts = 30
         self.light_hours = light_hours
 
         self.fans = [(fan_type.lower(), hrs) for fan_type, hrs in fans]
