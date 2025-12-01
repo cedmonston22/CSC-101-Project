@@ -142,6 +142,37 @@ def total_energy_average(energy_data: list[dict]):
         total_energy += room["Device Energy"]
     return round(total_energy / len(energy_data), 2)
 
+def highest_total_energy(energy_data: list[dict]):
+    highest_energy_room = None
+    highest_total = -1
+    for entry in energy_data:
+        total = (
+            entry["Shower Energy"] +
+            entry["Light Energy"] +
+            entry["Fan Energy"] +
+            entry["Air Purifier Energy"] +
+            entry["Device Energy"]
+        )
+        if total > highest_total:
+            highest_total = total
+            highest_energy_room = entry["Room Number"]
+    return f"Room {highest_energy_room} has the highest total energy with {highest_total} Watts"
+
+def lowest_total_energy(energy_data: list[dict]):
+    lowest_energy_room = None
+    lowest_total = float("inf")
+    for entry in energy_data:
+        total = (
+            entry["Shower Energy"] +
+            entry["Light Energy"] +
+            entry["Fan Energy"] +
+            entry["Air Purifier Energy"] +
+            entry["Device Energy"]
+        )
+        if total < lowest_total:
+            lowest_total = total
+            lowest_energy_room = entry["Room Number"]
+    return f"Room {lowest_energy_room} has the lowest total energy with {lowest_total} Watts"
 def tips_for_above_average(energy_data: list[dict]):
     pass
 # no tips yet right, i'll do this with u later
@@ -154,4 +185,7 @@ if __name__ == "__main__":
     print(find_above_average(rooms, "Fan Energy"))
     print(find_above_average(rooms, "Air Purifier Energy"))
     print(find_above_average(rooms, "Device Energy"))
-    print("Average Total Energy:", total_energy_average(rooms))
+    print(" ")
+    print(lowest_total_energy(rooms))
+    print(highest_total_energy(rooms))
+    print("Average Total Energy:", total_energy_average(rooms), "Watts ")
