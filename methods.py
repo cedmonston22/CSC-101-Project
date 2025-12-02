@@ -43,7 +43,7 @@ data = [
         208, 1.5, 16,
         fans=[("woozoo", 6), ("idk", 6)],
         air_purifiers=[("idk", 24)],
-        devices=[("laptop", 10), ("phone", 10), ("dj set", 10),
+        devices=[("laptop", 10), ("phone", 10),
                  ("phone", 10), ("laptop", 10), ("phone", 10),
                  ("laptop", 10), ("phone", 10), ("phone", 10), ("phone", 10)]
     ),
@@ -54,7 +54,7 @@ data = [
         devices=[("phone", 10), ("phone", 10), ("phone", 10),
                  ("mac", 10), ("mac", 10), ("mac", 10),
                  ("ipad", 10), ("ipad", 10), ("ipad", 10),
-                 ("pc", 10), ("pc", 10)]
+                 ("laptop", 10), ("laptop", 10)]
     ),
     data.Room(
         210, 0.75, 10,
@@ -101,7 +101,7 @@ data = [
         devices=[("phone", 12), ("phone", 12), ("phone", 12),
                  ("ipad", 12), ("ipad", 12), ("ipad", 12),
                  ("mac", 12), ("mac", 12), ("mac", 12),
-                 ("pc", 12), ("pc", 12)]
+                 ("laptop", 12), ("laptop", 12)]
     ),
 ]
 
