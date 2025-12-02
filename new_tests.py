@@ -1,6 +1,7 @@
 import unittest
 import methods
 import data
+from data import Room
 
 class TestCases(unittest.TestCase):
 
@@ -67,6 +68,51 @@ class TestCases(unittest.TestCase):
         expected = "Room 101 has the lowest total energy with 150 Watts"
         self.assertEqual(result, expected)
 
+class TestRoomEnergyMethods(unittest.TestCase):
+
+    def setUp(self):
+        self.room1 = Room(
+            101, 1, 10,
+            fans=[("woozoo", 5)],
+            air_purifiers=[("winix", 5)],
+            devices=[("phone", 5)]
+        )
+        self.room2 = Room(
+            102, 2, 5,
+            fans=[("hurricane", 3)],
+            air_purifiers=[("blue pure", 2)],
+            devices=[("laptop", 4)]
+        )
+
+    def test_shower_energy_room1(self):
+        self.assertEqual(self.room1.shower_energy(), 3000 * 1)
+
+    def test_shower_energy_room2(self):
+        self.assertEqual(self.room2.shower_energy(), 3000 * 2)
+
+    def test_light_energy_room1(self):
+        self.assertEqual(self.room1.light_energy(), 30 * 10)
+
+    def test_light_energy_room2(self):
+        self.assertEqual(self.room2.light_energy(), 30 * 5)
+
+    def test_fan_energy_room1(self):
+        self.assertEqual(self.room1.fan_energy(), 50 * 5)
+
+    def test_fan_energy_room2(self):
+        self.assertEqual(self.room2.fan_energy(), 115 * 3)
+
+    def test_ap_energy_room1(self):
+        self.assertEqual(self.room1.ap_energy(), 30 * 5)
+
+    def test_ap_energy_room2(self):
+        self.assertEqual(self.room2.ap_energy(), 46 * 2)
+
+    def test_device_energy_room1(self):
+        self.assertEqual(self.room1.device_energy(), 20 * 5)
+
+    def test_device_energy_room2(self):
+        self.assertEqual(self.room2.device_energy(), 65 * 4)
 
 if __name__ == "__main__":
     unittest.main()
